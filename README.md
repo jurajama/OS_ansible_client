@@ -12,7 +12,9 @@ Clone repository:
 
 Build image:
 
-<PRE>docker build -t ansiclient .</PRE>
+<PRE>
+cd OS_ansible_client
+docker build -t ansiclient .</PRE>
 
 Run image:
 <PRE>docker run -it ansiclient</PRE>
