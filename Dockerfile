@@ -1,11 +1,8 @@
-FROM ubuntu:14.04
+FROM fedora:24
 
-RUN apt-get update && apt-get install -y software-properties-common
-RUN apt-add-repository -y ppa:ansible/ansible
-RUN apt-get update && apt-get install -y ansible nano wget
-
-RUN apt-get install -y python-pip python-dev libffi-dev libssl-dev
-RUN pip install pytz shade warlock==1.2.0 functools32 futures
-RUN pip install oslo.config six --upgrade
+RUN dnf install -y nano wget python libffi-devel python-devel openssl-devel redhat-rpm-config gcc git
+RUN pip install --upgrade pip
+RUN pip install ansible python-openstackclient python-novaclient python-neutronclient python-glanceclient python-cinderclient shade ansible-tools SecretStorage-Setup keyring
 
 ENTRYPOINT /bin/bash
+
