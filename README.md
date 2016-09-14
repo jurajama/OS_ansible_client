@@ -2,8 +2,8 @@
 Docker container with Ansible and modules needed to manage OpenStack.
 
 <B>Precondition:</B>
-- Docker service is installed on the client machine.
-- Client machine has got internet connection without need for proxy.
+- Docker service is installed on the client machine. Note that by default package managers of Linux distros often install very old version of the Docker engine. To avoid that, follow instructions in <A HREF='https://docs.docker.com/engine/installation/'>https://docs.docker.com/engine/installation/</A>
+- Client machine has got internet connection without need for HTTP proxy.
 
 <B>Installation:</B>
 
@@ -19,4 +19,4 @@ docker build -t ansiclient .</PRE>
 Run image:
 <PRE>docker run -it ansiclient</PRE>
 
-The run command opens bash session inside the container. Try running "ansible --version" and "nova --version" to verify that the modules are installed.
+The run command opens bash session inside the container, press enter once to see the prompt. Try running "ansible --version" and "nova --version" to verify that the modules are installed.
