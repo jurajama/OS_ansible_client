@@ -20,3 +20,5 @@ Run image:
 <PRE>docker run -it ansiclient</PRE>
 
 The run command opens bash session inside the container, press enter once to see the prompt. Try running "ansible --version" and "nova --version" to verify that the modules are installed.
+
+For accessing the cloud, you need "rc-file" that you can download from OpenStack GUI -> Compute -> Access&Security -> API Access -> Download OpenStack RC File. Copy the file on your client machine and run "source filename.sh". Then the environment variables are set so that the CLI commands can work.
