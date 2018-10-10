@@ -2,7 +2,7 @@
 Docker container with Ansible and modules needed to manage OpenStack.
 
 ## Precondition
-- Docker service is installed on the client machine. Note that by default package managers of Linux distros often install very old version of the Docker engine. To avoid that, follow instructions in [https://docs.docker.com/install/] (https://docs.docker.com/install)
+- Docker service is installed on the client machine. Note that by default package managers of Linux distros often install very old version of the Docker engine. To avoid that, follow instructions in (https://docs.docker.com/install)
 - Client machine has got internet connection without need for HTTP proxy.
 
 ## Running ready-built container from Dockerhub
