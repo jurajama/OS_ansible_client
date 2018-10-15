@@ -18,16 +18,17 @@ Often you want to have SSH agent forwarding working when using Ansible. That is 
 docker run -it -v $(dirname $SSH_AUTH_SOCK):$(dirname $SSH_AUTH_SOCK) -e SSH_AUTH_SOCK=$SSH_AUTH_SOCK jurajama/os_ansible_client
 ```
 
-The run command opens bash session inside the container, press enter once to see the prompt. Try running *"ansible --version"* and *"nova --version"* to verify that the modules are installed.
+The run command opens bash session inside the container, press enter once to see the prompt. Try running *"ansible --version"* and *"openstack --version"* to verify that the modules are installed.
 
-When you enter the container, by default you will be root user. However typically you may want to use your own user account so that SSH to target systems works. You can do that by adding user account inside container after startup:
+When you enter the container, by default you will be root user. However typically you may want to use your own user account so that SSH to target systems works. You can do that by adding user account inside container after startup and then switching as that user. When SSH agent forwarding is used, you shall also change the owner of SSH agent directory.
 ```
 adduser testuser
+chown -R testuser:testuser $(dirname $SSH_AUTH_SOCK)
 su testuser
 cd ~
 ```
 
-For accessing the cloud, you need "rc-file" that you can download from OpenStack GUI -> Compute -> Access&Security -> API Access -> Download OpenStack RC File. Copy the file on your client machine and run "source filename.sh". Then the environment variables are set so that the CLI commands can work.
+For accessing the cloud, you need "rc-file" that you can download from OpenStack GUI -> Compute -> Access&Security -> API Access -> Download OpenStack RC File. Copy the file on your client machine and run "source filename.sh". Then the environment variables are set so that the OpenStack CLI commands can work, for example *"openstack server list"*.
 
 ## Building container yourself
 You can build the container yourself from Dockerfile. This is needed if for example you want to add some packages to the image.
