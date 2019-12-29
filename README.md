@@ -1,5 +1,5 @@
 # OS_ansible_client
-Docker container with Ansible and modules needed to manage OpenStack.
+Docker container with Ansible and modules needed to manage OpenStack, Azure, AWS and Google Cloud Platform.
 
 ## Precondition
 - Docker service is installed on the client machine. Note that by default package managers of Linux distros often install very old version of the Docker engine. To avoid that, follow instructions in (https://docs.docker.com/install)
@@ -28,7 +28,7 @@ su testuser
 cd ~
 ```
 
-For accessing the cloud, you need "rc-file" that you can download from OpenStack GUI -> Compute -> Access&Security -> API Access -> Download OpenStack RC File. Copy the file on your client machine and run "source filename.sh". Then the environment variables are set so that the OpenStack CLI commands can work, for example *"openstack server list"*.
+For accessing the OpenStack cloud, you need "rc-file" that you can download from OpenStack GUI -> Compute -> Access&Security -> API Access -> Download OpenStack RC File. Copy the file on your client machine and run "source filename.sh". Then the environment variables are set so that the OpenStack CLI commands can work, for example *"openstack server list"*.
 
 ## Building container yourself
 You can build the container yourself from Dockerfile. This is needed if for example you want to add some packages to the image.
@@ -49,8 +49,3 @@ After this the container can be started with name *ansiclient*:
 ```
 docker run -it ansiclient
 ```
-
-
-
-
-

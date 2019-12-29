@@ -9,7 +9,9 @@ RUN pip install --upgrade pip && \
 # Azure related packages
     pip install pywinrm packaging msrestazure ansible[azure] && \
 # Install latest boto version needed in managing AWS
-    pip install -U boto
+    pip install -U boto && \
+# Install google-auth needed in managing Google Cloud Platform with Ansible
+    pip install google-auth
 
 ENTRYPOINT /bin/bash
 
