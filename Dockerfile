@@ -1,17 +1,16 @@
 FROM fedora:latest
 
-RUN dnf install -y nano wget python libffi-devel python-devel openssl-devel redhat-rpm-config gcc git python-virtualenvwrapper findutils net-tools traceroute python2-dnf sshpass sudo
+RUN dnf install -y nano wget libffi-devel python3-devel openssl-devel redhat-rpm-config gcc git python3-virtualenvwrapper findutils net-tools traceroute python3-dnf sshpass sudo
 
-RUN pip install --upgrade pip && \
 # OpenStack related packages
-    pip install ansible python-openstackclient python-novaclient python-neutronclient python-glanceclient python-cinderclient && \
-    pip install python-ceilometerclient shade ansible-tools SecretStorage-Setup keyring paramiko lxml && \
+RUN pip3 install ansible python-openstackclient python-novaclient python-neutronclient python-glanceclient python-cinderclient && \
+    pip3 install python-ceilometerclient shade ansible-tools paramiko lxml && \
 # Azure related packages
-    pip install pywinrm packaging msrestazure ansible[azure] && \
+    pip3 install pywinrm packaging msrestazure ansible[azure] && \
 # Install latest boto version needed in managing AWS
-    pip install -U boto && \
+    pip3 install -U boto && \
 # Install google-auth needed in managing Google Cloud Platform with Ansible
-    pip install google-auth
+    pip3 install google-auth
 
 ENTRYPOINT /bin/bash
 
